@@ -3,7 +3,7 @@ require 'json'
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
 Pod::Spec.new do |s|
-  s.name         = package['name']
+  s.name         = 'react-native-floating-label-input'
   s.version      = package['version']
   s.summary      = package['description']
   s.license      = package['license']
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.homepage     = package['homepage']
   s.platforms    = { :ios => "9.0", :osx => "10.13" }
 
-  s.source       = { :git => "https://github.com/cnilton/react-native-floating-label-input.git", :tag => "v#{s.version}" }
+  s.source       = { :git => "https://github.com/c-barron/react-native-floating-label-input.git", :tag => "v#{s.version}" }
   s.source_files  = "apple/**/*.{h,m}"
 
   s.dependency 'React-Core'

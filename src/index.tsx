@@ -29,10 +29,10 @@ import Animated, {
 } from 'react-native-reanimated';
 import { styles } from './styles';
 
-// import makeVisibleWhite from './assets/make_visible_white.png';
-// import makeInvisibleWhite from './assets/make_invisible_white.png';
-// import makeVisibleBlack from './assets/make_visible_black.png';
-// import makeInvisibleBlack from './assets/make_invisible_black.png';
+import makeVisibleWhite from './assets/make_visible_white.png';
+import makeInvisibleWhite from './assets/make_invisible_white.png';
+import makeVisibleBlack from './assets/make_visible_black.png';
+import makeInvisibleBlack from './assets/make_invisible_black.png';
 
 import { getValueWithCurrencyMask, getValueWithNonCurrencyMask } from './utils';
 
@@ -348,13 +348,13 @@ const FloatingLabelInput: React.ForwardRefRenderFunction<InputRef, Props> = (
     }
   }
 
-  // const imgSource = darkTheme
-  //   ? secureText
-  //     ? customShowPasswordImage || makeVisibleBlack
-  //     : customHidePasswordImage || makeInvisibleBlack
-  //   : secureText
-  //   ? customShowPasswordImage || makeVisibleWhite
-  //   : customHidePasswordImage || makeInvisibleWhite;
+  const imgSource = darkTheme
+    ? secureText
+      ? customShowPasswordImage || makeVisibleBlack
+      : customHidePasswordImage || makeInvisibleBlack
+    : secureText
+    ? customShowPasswordImage || makeVisibleWhite
+    : customHidePasswordImage || makeInvisibleWhite;
 
   const style: TextStyle = StyleSheet.flatten([
     setGlobalStyles?.labelStyles,
@@ -643,7 +643,7 @@ const FloatingLabelInput: React.ForwardRefRenderFunction<InputRef, Props> = (
                 ) : !secureText && customHidePasswordComponent !== undefined ? (
                   customHidePasswordComponent
                 ) : (
-                  <Text style={darkTheme ? {color: 'white'} : {color: 'black'}}>{secureText ? "Show" : "Hide"}</Text>
+                  <Image source={imgSource} resizeMode="contain" style={img} />
                 )}
               </TouchableOpacity>
             )}
